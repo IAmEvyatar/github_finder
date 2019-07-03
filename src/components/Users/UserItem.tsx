@@ -14,7 +14,11 @@ const UserItem: any = ({ user: { login, avatar_url, html_url } }: any) => {
       />
       <h3>{login}</h3>
       <div>
-        <a href={html_url} target='_blank' className='btn btn-dark btn-sm my-1'>
+        <a
+          href={html_url}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='btn btn-dark btn-sm my-1'>
           More
         </a>
       </div>
