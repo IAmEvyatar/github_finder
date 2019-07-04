@@ -9,7 +9,8 @@ import "./App.css";
 class App extends Component {
   state = {
     users: [],
-    loading: false
+    loading: false,
+    alert: null
   };
   // search github users
   searchUsers: (text: string) => any = async text => {
@@ -26,6 +27,10 @@ class App extends Component {
     this.setState({ users: [], loading: false });
   };
 
+  setAlert: (msg: string, type: any) => void = (msg, type) => {
+    this.setState({ alert: { msg, type } });
+  };
+
   render() {
     const { users, loading } = this.state;
     return (
@@ -35,9 +40,10 @@ class App extends Component {
           <Search
             searchUsers={this.searchUsers}
             clearUsers={this.clearUsers}
-            showClear={this.state.users.length > 0 ? true : false}
+            showClear={users.length > 0 ? true : false}
+            setAlert={this.setAlert}
           />
-          <Users loading={this.state.loading} users={this.state.users} />
+          <Users loading={loading} users={users} />
         </div>
       </div>
     );
