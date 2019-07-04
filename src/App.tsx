@@ -3,6 +3,7 @@ import Navbar from "./components/layout/Navbar";
 import axios from "axios";
 import Users from "./components/Users/Users";
 import Search from "./components/Users/Search";
+import Alert from "./components/layout/Alert";
 
 import "./App.css";
 
@@ -27,16 +28,17 @@ class App extends Component {
     this.setState({ users: [], loading: false });
   };
 
-  setAlert: (msg: string, type: any) => void = (msg, type) => {
+  setAlert: (msg: string, type: string) => void = (msg, type) => {
     this.setState({ alert: { msg, type } });
   };
 
   render() {
-    const { users, loading } = this.state;
+    const { users, loading, alert } = this.state;
     return (
       <div className='App'>
         <Navbar />
         <div className='container'>
+          <Alert alert={alert} />
           <Search
             searchUsers={this.searchUsers}
             clearUsers={this.clearUsers}
