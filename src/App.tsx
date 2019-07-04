@@ -27,6 +27,7 @@ class App extends Component {
   };
 
   render() {
+    const { users, loading } = this.state;
     return (
       <div className='App'>
         <Navbar />
