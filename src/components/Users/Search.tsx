@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class search extends Component {
+export class search extends Component<any, any> {
   state = {
     text: ""
   };
@@ -8,7 +8,8 @@ export class search extends Component {
     this.setState({ [e.target.name]: e.target.value });
   onSubmit: (e: any) => any = e => {
     e.preventDefault();
-    console.log(this.state.text);
+    this.props.searchUsers(this.state.text);
+    this.setState({ text: "" });
   };
   render() {
     return (
