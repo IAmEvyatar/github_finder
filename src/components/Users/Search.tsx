@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 const Search: (a: any, b: any, c: any, d: any) => any = ({
   searchUsers,
